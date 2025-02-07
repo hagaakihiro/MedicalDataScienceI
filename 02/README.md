@@ -1,4 +1,4 @@
-
+<img src="https://render.githubusercontent.com/render/math?math=b^n"> 
 # 最小二乗法と最尤推定
 
 ## はじめに 
