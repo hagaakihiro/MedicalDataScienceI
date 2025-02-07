@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<!--ここから追記 1.(数式に対応させる)-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax:{inlineMath: [['$', '$']]},
+      messageStyle: "none"
+    });
+</script>
+<!--追記 1.ここまで-->
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+    <!--ここから追記 2.(--- で改ページ)-->
+    <style>  
+      hr {  
+        opacity: 0;  
+        break-after: page;  
+      }  
+    </style>  
+    <!--追記 2.ここまで-->
+<h1 id="%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%97%E6%B3%95%E3%81%A8%E6%9C%80%E5%B0%A4%E6%8E%A8%E5%AE%9A">最小二乗法と最尤推定</h1>
+<h2 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h2>
+<p>機械学習や人工知能を学ぶ上で、実現したいことに対して手法を分けて整理しておくと理解が進むことがある。基本的に、我々が機械学習や人工知能を使って実現したいことは「回帰・識別・クラスタリング」である（図2-1）（この他に将棋ソフトのような「強化学習」というものもある。これは勝利に導いた「過程」に報酬を与えることで何度も対戦を繰り返すことで報酬が最大になる経路を学習していくというプロセスを踏んでいる。「報酬の最大化」という点を見ると、これから行う回帰や識別・クラスタリングと同じような問題設定に帰結させていることに気づくであろう）。<strong>回帰（Regression）</strong> は量的データ（数値であり、値の大小が意味をなすもの）を再現することが目的であり、関数フィッティング（または単にフィッティング）のことである。<strong>識別（Classification</strong> は量的データ[*]を情報として質的データ（男女、犬猫、のように大小の意味を持たないもの）を分ける境界を引くことに対応し、<strong>クラスタリング（Clustering）</strong> は識別に似ているが、識別のように分けたい質的データを最初から与えるのではなく、量的データから似たもの同士をグループ化する（クラスタリングする）ことを行う。識別は、量的データを入力として質的データを学習するが、クラスタリングは、質的データの学習が必要ないため、前者を<strong>教師あり学習</strong>、後者を<strong>教師なし学習</strong>として区別している。</p>
+<p>*<em>質的データと量的データについては医学統計学で学ぶ</em></p>
+<p><img src="images/2_1.png" width="500"><br></p>
+<p><em>図2-1:機械学習・人工知能で実現させること：回帰・識別・クラスタリング</em></p>
+<p>医用データ科学Iでは、前半で回帰、後半で識別を学ぶ。
+回帰は先に述べた通り、数値データをフィッティングすることである。最も簡単な例は、一次元データを直線でフィッティングすることであり、全く同じ枠組みで曲線でフィッティングしたり、多次元データに当てはめることが可能である（図2-2）。
+これらが同じ枠組みで理解されるということが実感できた時、回帰がマスターできたと言えるとともに、どのようなデータに対しても立ち向かえることができる武器を手に入れたことになる。
+本稿では、まず最小二乗法によってなぜ一次元データをフィッティングすることができるのかを学び、
+この最小二乗法が俯瞰的に見ると、データにガウス型ノイズが付加されていると考えた時の最尤推定によって導かれることを学ぶ。</p>
+<p><img src="images/2_2.png" width="500"><br></p>
+<p><em>図2-2:左：直線フィッティング、中央：曲線フィッティング、右：二次元データのフィッティング。どれも回帰という機械学習の枠組みで実現される。</em></p>
+<h2 id="%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%97%E6%B3%95">最小二乗法</h2>
+<p>図2-3に示す赤の丸点を直線でフィッティングすることを考えよう。
+これは横軸をCT値[Hunsfield Unit], 縦軸を水に対する相対密度としたCT値密度変換データである。
+直線でフィッティングすることで、任意のCT値を相対密度に変換することができる。
+赤のデータ点を$(x_n, t_n)$と記述することにしよう。ここで$x_n$がデータ点のCT値、$t_n$が対応するデータ点の相対密度である。
+今CT値を$x$としたときに相対密度を与える直線として$y=ax+b$を仮定する。
+データフィッティングの問題は、「データを再現する関数$y=ax+b$の$a,b$を求める」という問題と見做せる。
+「データを再現する」ということを数式上で表現するには、それを「データ点と直線との距離が最も短くなる」と読み替えることで、</p>
+<p>$${\cal L} = \frac{1}{2}\sum_n^N (y(x_n)-t_n)^2 = \frac{1}{2}\sum_n^N ((ax_n+b)-t_n)^2 \hspace{2mm}\cdots(1)$$</p>
+<p>を最小にする$a,b$を求めれば良いのではないか、と考えることができよう（1/2は偏微分する際に消えるので便利のためつけている）。
+この式はデータ点と直線の二乗和であり、これを最小にしようとするため、最小二乗法という名前が付けられている。</p>
+<!---![preview](images/2_3.png)--->
+<p><img src="images/2_3.png" width="500"><br>
+<em>図2-3:CT値密度変換データ：横軸はCT値[Hunsfield Unit], 縦軸は水に対する相対密度。
+このグラフから、ある人に頭部のCTを撮影した時の脳幹の密度を推定するにはどうすれば良いだろうか？</em></p>
+<p><strong>練習１:</strong>
+式（1）を$a$と$b$で偏微分した結果を示せ。
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<p><strong>練習2:</strong>
+この偏微分の結果を用いて図2-4の三点のデータに対する直線フィッティングの式$y=ax+b$を求めよ。</p>
+<!---![preview](images/2_4.png)--->
+<p><img src="images/2_4.png" width="400"><br>
+<em>図2-4:3点との差が最も小さくなる直線を求めよ（応用数学Iでやってますよ！）</em>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<p>ここまでは直線フィッティングを考えてきたが、それはフィッティングの関数を直線と仮定したからであり、
+別にどのような関数を用意しても最小二乗法を行うことができる。例えば多項式、</p>
+<p>$$
+y(x) = \sum_{i=0}^{M}w_i x^i = w_0 + w_1 x + w_2 x^2 \cdots + w_M x^M \hspace{2mm}\cdots(2)
+$$
+でフィッティングすることを考えてみよう。これを式(1)に代入して求めたい$w_i$で偏微分し、それが0となる$w_i$を求めれば良いわけである。
+実際にやってみよう。今後のことも考えて上式を、</p>
+<p>$$
+y(x) = \sum_{i=0}^{M}w_i \phi_i(x) = w_0 + w_1 \phi_1(x) + w_2 \phi_2(x) \cdots + w_M \phi_M(x) = \vec{w}^{\top}\vec{\phi}(x) \hspace{2mm}\cdots(3)
+$$
+としておく。つまり$\phi_i=x^i$とすれば多項式になるので、(3)は(2)を一般化したことになる。</p>
+<p>これで二乗和誤差関数</p>
+<p>$$
+{\cal L}(\vec{w}) = \frac{1}{2}\sum_{n=1}^N \left( y(x_n) - t_n \right)^2 \hspace{2mm}\cdots(4)
+$$
+を$w_i$で偏微分し、0とおいて整理すると次の解析解が得られる。</p>
+<p>$$
+\vec{w} = \left(
+\Phi^\top\Phi
+\right)^{-1}
+\Phi^\top \vec{t} \hspace{2mm}\cdots(5)
+$$</p>
+<p>ここで計画行列$\Phi$は</p>
+<p>$$
+\Phi =
+\begin{pmatrix}
+\hspace{2mm}1 &amp; \phi_1(x_1) &amp; \cdots &amp; \phi_M(x_1)\
+\hspace{2mm}1 &amp; \phi_1(x_2) &amp; \cdots &amp; \phi_M(x_2)\
+&amp; \cdots &amp; \
+\hspace{2mm}1 &amp; \phi_1(x_n) &amp; \cdots &amp; \phi_M(x_n)\
+\end{pmatrix} \hspace{2mm}\cdots(6)
+$$
+のように書ける。</p>
+<p><strong>練習3:</strong>
+式（5）を導け。</p>
+<p>ここまでで、素晴らしいことに気づく。式(3)-(6)を見るとおり、この結果は関数の選び方やその数によらない形で得られているという事実である。関数に複雑な形をした関数を選べば、フィッティングも複雑なデータに対応でき、応用範囲が広がりそうである。にも関わらず、(2)のような多項式であろうともっと複雑な関数セットを選ぼうと(5)のような形で得られてしまうのは何故か？それは仮定したフィッティング関数式(3)が<strong>求めたいパラメータ$\vec{w}$に対して線形</strong>であるからである。
+どんな関数を用意しても、その重み$w_i$の調整で線形和（重ね合わせ）で表現してしまえば、結論は同じになる。これはすごいことだ!
+もちろん、限界も現れる。それは和の数には限りがあることに起因したり、適切な関数の選択をどうすれば良いのかが職人芸になる、といった点である。
+そのような課題にどのように立ち向かうのか、それは後半の講義で少しずつ明らかになろう。</p>
+<h2 id="%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%97%E6%B3%95%E3%81%AE%E5%88%A5%E3%81%AE%E8%A6%8B%E6%96%B9%E6%9C%80%E5%B0%A4%E6%8E%A8%E5%AE%9A">最小二乗法の別の見方：最尤推定</h2>
+<p>データフィッティングを、データ点とフィッティング関数の誤差の二乗が最小になるという観点でこれまで定式化してきた。
+これを確率的な観点から眺め、最小二乗法の背景にある理論とその拡張に見通しをつけるために、同じ結論に至る最尤推定をここで学ぶ。</p>
+<p>データフィッティングの目標は、$N$個のデータ$(x_n, t_n), n=1\sim N$に基づいて、新たなデータ$x$に対する$t$を予測する、というように見ることができる。
+目標とする$t$の予測の不確実性は、確率分布をつかって表すことができる。与えられた$x$に対する$t$は、平均がフィッティング関数$y$となるガウス関数に従うものと仮定する。
+$$
+p(t|x, \vec{w}, \beta) = {\cal N}(t|y(x,\vec{w}),\beta^{-1}) \hspace{2mm}\cdots(7)
+$$
+ここで${\cal N}(t|\mu,\sigma) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp{(\frac{1}{2\sigma^2}(t-\mu)^2)}$
+は変数が$t$, 平均が$\mu$, 標準偏差が$\sigma$のガウス分布（正規分布）を表す。
+訓練データ$(x_n, t_n), n=1\sim N$ = ($\vec{x}, \vec{t}$)を使って$\vec{w}$と$\beta$を求める方法に最尤推定がある。
+これは、観測されたデータ ($\vec{x}, \vec{t}$)が得られる確率（尤度）が、それぞれの観測が独立の時、
+$$
+p(\vec{t}|\vec{x}, \vec{w}, \beta) = \prod_{n=1}^{N}{\cal N}(t_n|y(x_n,\vec{w}),\beta^{-1}) \hspace{2mm}\cdots(8)
+$$
+となるので、この尤度を最大にする$\vec{w}$と$\beta$を求める、と考えることができるからである。
+では、尤度の最大化を考えてみよう。その前に式(\ref{eq8})の対数をとる。これは対数は単調関数のため、最大値を与える変数$\vec{w}$と$\beta$の位置を変えないことを利用する。
+対数をとると、
+$$
+\ln p(\vec{t}|\vec{x}, \vec{w}, \beta) = -\frac{\beta}{2}\sum_{n=1}^N \left( y(x_n) - t_n \right)^2 + \frac{N}{2} \ln \beta - \frac{N}{2} \ln (2\pi)
+\hspace{2mm}\cdots(9)
+$$
+となる。この関数を$\vec{w}$の関数とみなした時、右辺の第二項と第三項は除いて良い（実際に偏微分すると0になる）。
+式(4)と見比べると、前にかかる$\beta$と符号が異なるが、$\beta$は最大にする$\vec{w}$の値を変えず、
+また、符号は最大化と最小化の違いであることから、
+<strong>尤度関数式(8)を最大にする最尤推定の手法は、最小二乗法と全く同じフィッティング結果を与える</strong>。</p>
+<p><strong>練習4:</strong>
+式（9）を導け。
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h2 id="python%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%97%E6%B3%95">pythonを使った最小二乗法</h2>
+<h3 id="%E3%82%B0%E3%83%A9%E3%83%95%E8%A1%A8%E7%A4%BA">グラフ表示</h3>
+<p>CT-to-ED.csvをダウンロードし、グラフを表示させてみよう。
+（参考）以下では、前回作成したinput_output.pyを編集して、
+output.csvのデータをグラフ表示するスクリプトを作成します。</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-comment"># データの読み込み</span>
+df = pd.read_csv(<span class="hljs-string">"output.csv"</span>, encoding=<span class="hljs-string">"SHIFT-JIS"</span>)
+print(df)
+<span class="hljs-comment"># 2列目と3列目の和をとり、新たにtotalという項目名で4列目を作る</span>
+df[<span class="hljs-string">"total"</span>] = df[<span class="hljs-string">"sin_2px"</span>]+df[<span class="hljs-string">"noise"</span>]
+print(df)
+<span class="hljs-comment"># データの出力（今回はコメントアウト）</span>
+<span class="hljs-comment">#df.to_csv("output2.csv", index=None, encoding="SHIFT-JIS")</span>
+<span class="hljs-comment"># 図の作成 \\</span>
+plt.plot(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"sin_2px"</span>], ls=<span class="hljs-string">"-"</span>, color=<span class="hljs-string">"red"</span>, label=<span class="hljs-string">"sin_2px"</span>) <span class="hljs-comment">#折れ線 </span>
+plt.scatter(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"total"</span>], marker=<span class="hljs-string">"o"</span>, color=<span class="hljs-string">"blue"</span>,label=<span class="hljs-string">"total"</span>) <span class="hljs-comment">#散布図 </span>
+plt.xlim(<span class="hljs-number">-0.1</span>,<span class="hljs-number">1.0</span>) <span class="hljs-comment"># xの範囲</span>
+plt.ylim(<span class="hljs-number">-1.5</span>,<span class="hljs-number">1.5</span>) <span class="hljs-comment"># yの範囲</span>
+plt.legend() <span class="hljs-comment"># レジェンドを追加</span>
+plt.tight_layout() <span class="hljs-comment"># レイアウトの自動調整（常に書いておく）</span>
+plt.show()  <span class="hljs-comment"># 図の出力</span>
+</div></code></pre>
+<p><strong>練習１：</strong>
+作成したスクリプトを編集し、
+CT-to-ED.csvの１列目（CT_value_1）をx軸、
+3列目（Physical_Density）をy軸にとった散布図と
+2列目（CT_value_2）をx軸、
+3列目（Physical_Density）をy軸にとった散布図を重ねたグラフを作成せよ。
+<br>
+<br></p>
+<h3 id="%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%97%E6%B3%95%E7%9B%B4%E7%B7%9A%E3%83%95%E3%82%A3%E3%83%83%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">最小二乗法：直線フィッティング</h3>
+<p>まずは、見た目で$y=ax+b$を使って図のデータ点をなるべく通るような$a$と$b$を探してみよう。データを読み込んだ後に、下に示す部分をスクリプトに記載することで、直線を一緒にプロットすることができる。</p>
+<pre class="hljs"><code><div>x = [<span class="hljs-number">-1000</span>, <span class="hljs-number">1300</span>]
+y = [<span class="hljs-number">0.2</span>,<span class="hljs-number">1.7</span>]
+a = (y[<span class="hljs-number">1</span>]-y[<span class="hljs-number">0</span>])/(x[<span class="hljs-number">1</span>]-x[<span class="hljs-number">0</span>])
+b = y[<span class="hljs-number">1</span>]-a*x[<span class="hljs-number">1</span>]
+print(<span class="hljs-string">"y="</span>,a,<span class="hljs-string">"x+"</span>,b)
+plt.plot(x, y, ls=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"fitting"</span>)
+</div></code></pre>
+<p>（ここで何をやったのか、各自考えて理解すること）<br>
+直線がちょっと合っていないようなので、上を修正して自分なりに合わせるように調整してみよう。</p>
+<p>ここでやったことは、「見た目で合わせる」という作業である。
+これは科学的な根拠に基づいた合わせ方ではないが、やってダメなことでは決してありません。
+フィッティングの感触を掴む時にはむしろ直感的な方法を試してみるということは「有効な発想」です。一方、大学生なら最終的にはもっと明確で定量的な指標とともにフィッティングしてもらいたいものであるのも事実です。
+最小二乗法を使った直線フィッティングは、フィッティング関数を$y=ax+b$とした時に、
+<u>データとの誤差${\cal L}(a,b)=\sum_n (y_n-t_n)^2$を最小にする$a$と$b$を見つける</u>、という作業をすることでした。これを使うことで、明確で定量的なフィッティングができそうです。
+この誤差の最小値を求める問題は、$a$と$b$で偏微分してそれが$=0$となる時の$(a, b)$を求めれば良い。では、そのようにして
+CT_valueを説明変数（$x$）としてPhysical_Density（$t$）をフィットするにはどうしたら良いのか？</p>
+<p>今回はpythonが用意している数値計算用の「ライブラリ（library）」を利用して解いてみることにする（後の講義では、式(5)を自分で作成してもらうことも行います）。pythonはこれまでの歴史で積み上げられてきた様々な科学技術計算のライブラリを有しており、それを利用することで上記のような面倒な計算を簡便に行うメソッドを提供してくれている。最小二乗法のためのライブラリもいくつか用意されている；</p>
+<ul>
+<li>Numpy の polyfit</li>
+<li>Scipy の optimize.leastsq</li>
+<li>Scipy の optimize.curve_fit</li>
+</ul>
+<p>などなど。ここではNumpyのpolyfit（多項式フィット）を使ってフィッティングしてみよう。まずNumpyを使うため、それをimportする。</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np 
+</div></code></pre>
+<p>（Numpyを使うためにはこれを予め宣言しておく必要がある）。</p>
+<p>そして、以下をスクリプトの適切なところに書き込もう。</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Least mean square fitting</span>
+coef = np.polyfit(df[<span class="hljs-string">"CT_value_1"</span>],df[<span class="hljs-string">"Physical_Density"</span>],<span class="hljs-number">1</span>) 
+y_pred = coef[<span class="hljs-number">0</span>]*df[<span class="hljs-string">"CT_value_1"</span>]+ coef[<span class="hljs-number">1</span>] 
+plt.plot(df[<span class="hljs-string">"CT_value_1"</span>], y_pred, ls=<span class="hljs-string">"-"</span>, color=<span class="hljs-string">"black"</span>,label=<span class="hljs-string">"fitting_LMS"</span>) 
+print(<span class="hljs-string">"y="</span>,coef[<span class="hljs-number">0</span>],<span class="hljs-string">"x+"</span>,coef[<span class="hljs-number">1</span>]) 
+</div></code></pre>
+<p>ここで書かれた内容をスクリプトに追加することで、どのような出力が出るだろうか？１行ずつ何をしているかを自分の頭でしっかり考えること。みなさんなら、理解できるはず。</p>
+<p><strong>練習２：</strong>
+np.polyfitを使った結果と目で合わせた結果をグラフ上で比較せよ。目で合わせたフィットと比べ、どちらが良い？
+<br>
+<br>
+<br></p>
+<h3 id="%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%97%E6%B3%95%E5%A4%9A%E9%A0%85%E5%BC%8F%E3%83%95%E3%82%A3%E3%83%83%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">最小二乗法：多項式フィッティング</h3>
+<p>今度はoutput2.csvの１列目（x）と４列目（total）をフィットしてみよう。np.polyfitを早速使ってフィッティングしてみると…</p>
+<p><strong>練習３：</strong>
+output2.csvの１列目（x）をx、
+４列目（total）をyとして、フィッティングせよ。
+<br>
+<br>
+<br></p>
+<p>いかがでしょう。フィットは成功しましたか？
+うまくできない人は、以下をヒントに考えてみてよう。</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Least mean square fitting</span>
+coef = np.polyfit(df[<span class="hljs-string">"CT_value_1"</span>],df[<span class="hljs-string">"Physical_Density"</span>],<span class="hljs-number">4</span>) 
+</div></code></pre>
+<p>ここで赤字で示した4は４次の多項式（$y=a+bx+cx^2+dx^3+ex^4$）を用いるということを意味する
+（前節ではここを１にしていたので直線近似していたことになる）。
+４次式をプロットしてみよう。まず多項式でフィットされた結果を出力する。その際、滑らかな曲線で表示したいので以下の作業により$x$のデータを細かくしておく。</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Least mean square fitting </span>
+coef = np.polyfit(df[<span class="hljs-string">"x"</span>],df[<span class="hljs-string">"total"</span>],<span class="hljs-number">4</span>) 
+x = np.arange(<span class="hljs-number">0</span>,<span class="hljs-number">1.01</span>,<span class="hljs-number">0.01</span>) <span class="hljs-comment">#表示するxを細かくする</span>
+y_pred = coef[<span class="hljs-number">0</span>]*x*x*x*x + coef[<span class="hljs-number">1</span>]*x*x*x + coef[<span class="hljs-number">2</span>]*x*x + coef[<span class="hljs-number">3</span>]*x + coef[<span class="hljs-number">4</span>] 
+plt.plot(x, y_pred, ls=<span class="hljs-string">"-"</span>, color=<span class="hljs-string">"black"</span>,label=<span class="hljs-string">"fitting_LMS"</span>)
+</div></code></pre>
+<p>フィットできましたか？できた場合でも、疑問があればなぜできたのかをきちんと説明できるよう、疑問点を解消しましょう。</p>
+<p>さて、多項式の数を変えるたびにy_predの形を次数に対応して変えなかればならないのは面倒だ。10次の多項式なんて、想像するだけで嫌ですね。np.polyfitに関して多項式の数に応じて計算してくれる関数funcを次のように作ることができる。</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Least mean square fitting</span>
+x = np.arange(<span class="hljs-number">0</span>,<span class="hljs-number">1.01</span>,<span class="hljs-number">0.01</span>) <span class="hljs-comment">#表示するxを細かくする</span>
+func = np.poly1d(np.polyfit(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"total"</span>], <span class="hljs-number">4</span>)) <span class="hljs-comment">#4次の多項式関数を作成</span>
+plt.plot(x, func(x), ls=<span class="hljs-string">"-"</span>, color=<span class="hljs-string">"black"</span>,label=<span class="hljs-string">"fitting_LMS"</span>) <span class="hljs-comment">#func(x)でOK</span>
+</div></code></pre>
+<p>出力されましたね！np.poly1dを使うことで、np.polyfitでフィットして決まった係数$w$を使って任意の$x$で値を返す関数を作ることができています。</p>
+<p>次に10次の多項式フィッティングをやってみよう。
+結果はいかがでしたか？</p>
+<!---
+%問1：4次と10次の違いが生じた理由を考えよ。\\
+%\vspace{1.5cm}
+%df <- transform(data2, PredictedY = predict(poly.fit))
+%plot(df$x,df$PredictedY)
+
+%fm3=nls(y+rdat~a+b*x+c*x^2+d*x^3,start=c(a=1,b=1,c=1,d=1),trace=T) 
+%plot(x,fitted(fm3),col=4)
+%\section{分類}
+--->
+<p>今みなさんは、<u>過学習</u>という問題を目の当たりにしています。10次多項式のフィッティングで生じたこの問題の解決方法は、次週以降で探りたいと思います。</p>
+<h2 id="%E6%BC%94%E7%BF%92%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">演習レポート</h2>
+<p>4次と10次の違いが生じた理由を考え、<u>解説</u>せよ。</p>
+
+</body>
+</html>
