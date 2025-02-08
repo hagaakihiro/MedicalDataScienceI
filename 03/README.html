@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<!--ここから追記 1.(数式に対応させる)-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax:{inlineMath: [['$', '$']]},
+      messageStyle: "none"
+    });
+</script>
+<!--追記 1.ここまで-->
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+    <!--ここから追記 2.(--- で改ページ)-->
+    <style>  
+      hr {  
+        opacity: 0;  
+        break-after: page;  
+      }  
+    </style>  
+    <!--追記 2.ここまで-->
+<h1 id="%E9%81%8E%E5%AD%A6%E7%BF%92%E3%81%A8%E6%AD%A3%E5%89%87%E5%8C%96">過学習と正則化</h1>
+<p>最小二乗法によるフィッティングをもう一度見てみよう。</p>
+<p><strong>復習１:</strong>
+output2.csvの&quot;total&quot;を$x$の4次及び10次の多項式でフィッティングせよ。</p>
+<p><img src="images/3_1.png" width="500"><br></p>
+<p>この図の青丸のデータは、$\sin(x)$に少しノイズを入れて作られた人工データである。
+4次の多項式フィッティングでそこそこの結果が得られるが、多項式の項の数を増やすとさらにデータを完璧に再現することができるようになることがわかる。
+しかし、データを生み出しているはずの$\sin(x)$とは似ても似つかない形になった。これは実は困ることである。何故なら、通常のデータにはノイズが含まれており、知りたいのはノイズを除いた真の値（今の場合は$\sin(x)$）であるからである。多項式の項の数を増やすというアプローチは、データを再現するのに直感的に重要と思われるのにどうしてこのようなことになったのであろう？
+これはデータ点の数（11個）に対して、フィッティングするパラメータが多くなることによって（10次の場合は定数項を含めて11個の変数）データを再現するようにパラメータの値がかっちり決まってしまうのが原因であると考えられる。データ点以外のところはどうでもよく、データ点のみ再現できていれば良い、という問題であればこれで構わないが、機械学習や人工知能ではこれは問題である。機械学習や人工知能では、<em><strong>データ点を再現するパラメータを求めるとともに、データ点がないところも尤もらしい値を予測する</strong></em>ことに主眼を置くからである。</p>
+<p>10次の多項式による結果をみよう（上右の図）。
+データ点以外のところはめちゃくちゃである。このモデル（$y=\sum_{i=0}^{10}w_i x^i$）は、データ点の再現に成功していても、予測性能としては非常に貧弱である、と言わざるを得ない。
+以上の結果は、<u>過学習</u>の代表的な例である。以下ではまず、過学習を避ける方法として正則化によるアプローチを学ぶ。
+そして、この正則化という手法が、確率論的な観点では最尤推定から事後分布最大化、さらにはベイズ線形回帰という手法に密接に関係していることを今回と次々回の講義で、目の当たりにする。</p>
+<h2 id="%E4%B8%80%E8%88%AC%E5%8C%96%E7%B7%9A%E5%BD%A2%E5%9B%9E%E5%B8%B0%E3%81%A8%E6%AD%A3%E5%89%87%E5%8C%96">一般化線形回帰と正則化</h2>
+<p>前回の資料で、フィッティング関数を一般化し、
+$$
+y(x) = \sum_{i=0}^{M}w_i \phi_i(x) = w_0 + w_1 \phi_1(x) + w_2 \phi_2(x) \cdots + w_M \phi_M(x) = \vec{w}^{\top}\vec{\phi}(x)
+\hspace{2mm}\cdots(1)$$
+という関数でデータを最小二乗フィッティングするときを考えると、右辺のそれぞれの関数$\vec{\phi}(x)$
+（これを<strong>基底関数</strong>と呼ぶ）にかかる重み$\vec{w}$を求める問題として、
+$$
+\vec{w} = \left(
+\Phi^\top\Phi
+\right)^{-1}
+\Phi^\top \vec{t} \hspace{2mm}\cdots(2)
+$$
+ここで計画行列$\Phi$は
+$$
+\Phi =
+\begin{pmatrix}
+\hspace{2mm}1 &amp; \phi_1(x_1) &amp; \cdots &amp; \phi_M(x_1)\
+\hspace{2mm}1 &amp; \phi_1(x_2) &amp; \cdots &amp; \phi_M(x_2)\
+&amp; \cdots &amp; \
+\hspace{2mm}1 &amp; \phi_1(x_n) &amp; \cdots &amp; \phi_M(x_n)\
+\end{pmatrix} \hspace{2mm}\cdots(3)
+$$
+のように書けることを学んだ。
+また、これは最尤推定でも同じことであることを知った。
+ここで$\vec{\phi}(x)$はどのような関数でもよい。この一般化された回帰モデルを<strong>一般化線形回帰モデル</strong>と呼ぶ。「線形」というのは、式(1)を$\vec{w}$の関数として眺めた時、これが線形表現（$w$の一次関数）になっているからである（元々知りたいのは$\vec{w}$である）。では、この表現を使いながら、正則化を説明していこう。</p>
+<h2 id="%E6%AD%A3%E5%89%87%E5%8C%96%E9%A0%85%E5%88%B6%E7%B4%84%E9%A0%85-or-%E3%83%9A%E3%83%8A%E3%83%AB%E3%83%86%E3%82%A3%E9%A0%85">正則化項（制約項 or ペナルティ項）</h2>
+<p>過学習の現象を制御するためによく使われるテクニックの一つに正則化（regularization）と言われる方法がある。これは$t$をデータとして誤差関数、
+$$
+{\cal L}(\vec{w}) = \frac{1}{2}\sum_{n=1}^N \left( y(x_n, \vec{w}) - t_n \right)^2 \hspace{2mm}\cdots(4)
+$$
+に罰則項（penalty term）
+$$
+\frac{\lambda}{2}|| \vec{w} ||<em>2^2 = \sum</em>{i=0}^M w_i^2 = w_0^2 + w_1^2 \cdots w_M^2 \hspace{2mm}\cdots(5)
+$$
+を付加することによりフィッティング・パラメータである$\vec{w}$の大きさを制御するという方法である（$|| \hspace{2mm} ||<em>2$をL2ノルムと呼ぶ）。つまり、
+$$
+\tilde{E}(\vec{w}) = \frac{1}{2}\sum</em>{n=1}^N \left( y(x_n, \vec{w}) - t_n \right)^2 + \frac{\lambda}{2}|| \vec{w} ||^2
+\hspace{2mm}\cdots(6)
+$$
+を最小にする$\vec{w}$を見つける、という最小化問題を解くことを行う。
+ここで$\lambda$は正則化項と二乗和誤差の相対的な重要度を調整する超パラメータ（hyper parameter）である。
+$\lambda$が大きいと、$\vec{w}$をなるべく小さくするようにしてデータをフィッティングし、逆に$\lambda$を小さくすると、最小二乗法の結果に近づいていく。</p>
+<p>正則化項を入れて回帰を行うには、式（6）を最小にしなければならない。
+最小値を求めるには$\vec{w}$で偏微分し、それが0となる停留点を求めれば良い。
+では、式（6）を偏微分してみよう。</p>
+<p><strong>練習１</strong>:
+式（6）を$\omega_j$で偏微分した結果を示せ。
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<p>以上より、式（6）を最小にする$\vec{w}$は次のように書ける；
+$$
+\vec{w} = \left(
+\lambda I + \Phi^\top \Phi
+\right)^{-1}
+\Phi^\top \vec{t}
+\hspace{2mm}\cdots(7)
+$$
+ここで$I$は単位行列である。$\Phi$は計画行列と呼ばれ、次の形に書ける（これは後ほどpythonで演習するときのdirect_optimize.pyやdirect_and_numerical.pyで使われているbasisに対応するが、それぞれ転置の関係にある（$\rightarrow$ basis = $\Phi^\top$, basis.T = $\Phi$）ことに注意）；
+$$
+\Phi =
+\begin{pmatrix}
+\hspace{2mm}1 &amp; \phi_1(x_1) &amp; \cdots &amp; \phi_{M}(x_1)\
+\hspace{2mm}1 &amp; \phi_1(x_2) &amp; \cdots &amp; \phi_{M}(x_2)\
+&amp; \cdots &amp; \
+\hspace{2mm}1 &amp; \phi_1(x_n) &amp; \cdots &amp; \phi_{M}(x_n)\
+\end{pmatrix} \hspace{2mm}\cdots(8)
+$$</p>
+<p>さて、式（7）の右辺は全てわかるので、これで求めたかった$\vec{w}$が得られたことになり、
+正則化最小二乗法によるフィッティングの結果は
+$$
+y(x, \vec{w}) = \sum_{i=0}^{M}w_i \phi_i(x) = w_0 + w_1\phi_1(x) + w_2 \phi_2(x) \cdots + w_M \phi_M(x)\hspace{2mm}\cdots(9)
+$$
+で得られたことになる。</p>
+<p>これをプログラムで求めることが次回の演習でのお題である。式（7）で$\lambda=0$とおいた結果が以前に行った最小二乗法であり、その時はnp.polyfitというライブラリを利用した。式（7）を見ると、$\lambda$があるかないかはちょっとした違いなのでnp.polyfitで計算できそうだが、そうは問屋が卸さない。np.polyfitは、正則化に対応していないのである。
+このように、<strong>たかが正則化項</strong>が加わるだけで対応できなくなってしまうのも困る。
+もっと一般的に考えてみると、最小にしたい関数を二乗和誤差から変更したい時にはどうすれば良いのか？
+（データを当てはめる方法には様々な方法があり、二乗和誤差を最小にするのが唯一の方法ではない！）</p>
+<p>次回は正則化一般化線形回帰モデルのプログラムを２つ作成する。
+1つは式（7）をそのまま用いて解くプログラム、もう一つは関数の最小値を求めるpythonのライブラリscipy.optimizeを使ったプログラムである。
+作成すると言っても、全部を１から作るというわけではなく、損失関数である式（6）を自由に変えられるようにし、その最小値とそれを与える$\vec{w}$を求める汎用性の高いプログラムを、上手くライブラリを使いながら作成してみたいと思う。</p>
+<h2 id="%E4%BA%8B%E5%BE%8C%E5%88%86%E5%B8%83%E6%9C%80%E5%A4%A7%E5%8C%96%E3%81%A8%E6%AD%A3%E5%89%87%E5%8C%96%E3%81%AE%E9%96%A2%E4%BF%82">事後分布最大化と正則化の関係</h2>
+<p>事後分布最大化を説明する前に、確率の基本法則である加法定理と乗法定理を先に学ぼう（本来は医学統計学で学ぶものであるが、理解が難しいところでもあるので繰り返し教授します。なお、情報科学入門の教科書にも載せていますので参照のこと。）。
+$$
+p(X) = \sum_Y p(X,Y)\hspace{2mm}\cdots(10)
+$$
+$$
+p(X,Y) = p(X|Y)p(Y) = p(Y|X)p(X)\hspace{2mm}\cdots(11)
+$$
+（(10)加法定理、(11)乗法定理）</p>
+<p>これは定理（証明されている）であり暗記してもらって良い（具体的な例を持ってこれらが成り立つことを確認しておくとよい）。
+このうち、乗法定理をデータフィッティングに当てはめて考える。
+前回、最尤推定では尤度関数
+$$
+p(\vec{t}|\vec{x}, \vec{w}, \beta) = \prod_{n=1}^{N}{\cal N}(t_n|y(x_n,\vec{w}),\beta^{-1})\hspace{2mm}\cdots(12)
+$$
+を定義し、これを最大にする$\vec{w}$が最小二乗法と同じ結果を与えることをみた。
+この$\vec{w}$に着目し、乗法定理$p(X|Y)p(Y) = p(Y|X)p(X)$の$X$か$Y$のどちらかを$\vec{w}$と考える。
+すると、
+$$
+p(\vec{w}|\vec{t}, \vec{x}, \beta) \propto p(\vec{t}|\vec{x}, \vec{w}, \beta) p(\vec{w})\hspace{2mm}\cdots(13)
+$$
+と書けるはずである。ここで右辺の$p(\vec{w})$は$\vec{w}$の事前確率分布（prior probability）で、平均が0、標準偏差が$1/\sqrt{\alpha}$である正規分布の基底関数の数$M$個の積として、
+$$
+p(\vec{w}|\alpha)= \left( \frac{\alpha}{\sqrt{2\pi}} \right)^{M/2}
+\exp{(-\frac{\alpha}{2}\vec{w}^\top \vec{w})}\hspace{2mm}\cdots(14)
+$$
+を仮定しよう（ここで$\alpha$も超パラメータとして明示した）。式(12)と(14)を式(13)の右辺に代入して対数をとると、
+$\vec{w}$に関する項として
+$$
+{\cal L}(\vec{w}) = \frac{\beta}{2}\sum_{n=1}^N \left( y(x_n) - t_n \right)^2 + \frac{\alpha}{2}|| \vec{w} ||^2
+\hspace{2mm}\cdots(15)
+$$
+を最小化することが、式(13)を最大にする結果に対応することが示される。
+式(13)の左辺$p(\vec{w}|\vec{t}, \vec{x}, \beta)$は
+$\vec{w}$の事前分布に観測から得られた結果を通して得られた$\vec{w}$の事後分布を意味しており、
+式(15)の最小化は、$\vec{w}$の事後分布最大化の結果と一致する。
+これまたすごい結果である。正則化は過学習を抑える目的でヒューリスティックに導入したのであるが、実は確率論的な観点からは事前分布を仮定することで
+自然に導入されるのである。</p>
+<p><strong>練習２:</strong>
+式（15）を導け。
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h2 id="python%E3%81%AB%E3%82%88%E3%82%8B%E6%AD%A3%E5%89%87%E5%8C%96%E4%B8%80%E8%88%AC%E5%8C%96%E7%B7%9A%E5%BD%A2%E5%9B%9E%E5%B8%B0%E3%83%A2%E3%83%87%E3%83%AB">pythonによる正則化一般化線形回帰モデル</h2>
+<h3 id="%E4%B8%80%E8%88%AC%E5%8C%96%E7%B7%9A%E5%BD%A2%E5%9B%9E%E5%B8%B0%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B01">一般化線形回帰のプログラミング1</h3>
+<p>output2.csvの項目totalに対して正則化最小二乗法で<u>式（7）を使って</u>フィットするプログラムを作成する。</p>
+<p>(1) データoutput2.csvを読み込む</p>
+<pre class="hljs"><code><div>df = pd.read_csv(<span class="hljs-string">"output2.csv"</span>, encoding=<span class="hljs-string">"SHIFT-JIS"</span>) 
+</div></code></pre>
+<p>(2) パラメータの設定（多項式の数と$\lambda$）</p>
+<pre class="hljs"><code><div>num_basis = <span class="hljs-number">10</span> 
+num_basis += <span class="hljs-number">1</span> 
+lamb = np.double(<span class="hljs-number">0.0005</span>)
+</div></code></pre>
+<p>2行目で$+1$をしたのは定数項を加えるため（10次の多項式の決めたい重みは10+1個ある）
+<strong>lambが式(\ref{regular})に対応する正則化の重みである</strong>（式(15)における$\alpha/\beta$）。</p>
+<p>(3) 多項式基底の作成（前回やった関数オブジェクトを使ってみましょう）</p>
+<pre class="hljs"><code><div>basis = basis_set_calc(num_basis,df[<span class="hljs-string">"x"</span>])
+</div></code></pre>
+<p>ここで、basis_set_calcは次のように定義しておきます</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">basis_set_calc</span><span class="hljs-params">(num_basis, x_n)</span>:</span> 
+    <span class="hljs-comment"># set basis function</span>
+    <span class="hljs-keyword">for</span> idata <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,num_basis):
+        <span class="hljs-keyword">if</span> idata == <span class="hljs-number">0</span>:
+            basis = x_n**idata
+        <span class="hljs-keyword">else</span>:
+            basis = np.append(basis, x_n**idata, axis=<span class="hljs-number">0</span>)
+    basis = np.reshape(basis, (num_basis, len(x_n)))
+    <span class="hljs-keyword">return</span> basis 
+</div></code></pre>
+<p>(4) フィットするデータと$\vec{\omega}$を用意</p>
+<pre class="hljs"><code><div>y_true = df[<span class="hljs-string">"total"</span>]
+w = np.zeros(num_basis)
+</div></code></pre>
+<p>(5) 式（7）を使って重みを求める</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">direct_weight_optimize</span><span class="hljs-params">(y, basis, lamb)</span>:</span>
+    prevec = np.dot(basis, y)
+    premat = np.linalg.inv(lamb * np.identity(len(prevec)) + np.dot(basis,basis.T))
+    ww = np.dot(premat,prevec)
+    <span class="hljs-keyword">return</span> ww
+</div></code></pre>
+<p>(6)結果を出力させる。図を出力させるとうまくいったかどうかを判定しやすい。</p>
+<pre class="hljs"><code><div>plt.plot(df[<span class="hljs-string">"x"</span>],y_true, <span class="hljs-string">"ro"</span>, label=<span class="hljs-string">"data"</span>)
+x = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">100</span>)
+plt.plot(x,np.sin(<span class="hljs-number">2</span>*np.pi*x), label=<span class="hljs-string">"true"</span>)
+basis = basis_set_calc(num_basis,x)
+fitted_2 = np.dot(direct_w,basis)
+plt.plot(x,fitted_2, label=<span class="hljs-string">"predict"</span>, color=<span class="hljs-string">"green"</span>)
+rmse = <span class="hljs-string">"rmse = %f"</span> % mean_squared_error(fitted_2, np.sin(<span class="hljs-number">2</span>*np.pi*x))
+plt.text(<span class="hljs-number">0.6</span>,<span class="hljs-number">0.5</span>, rmse)
+plt.legend()
+plt.show(block=<span class="hljs-literal">True</span>)
+</div></code></pre>
+<p>(7) 一連のプログラムを実行するのに必要なライブラリのインポート</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> math
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">from</span> scipy.optimize <span class="hljs-keyword">import</span> minimize
+<span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> mean_squared_error
+</div></code></pre>
+<p>これをつなぎ合わせて作られているのが
+direct_optimize.py
+です。関数の呼び出し方に注意しながらプログラムを読んでください。</p>
+<p><strong>練習２:</strong>
+lamb = 0と0.0005にした時の多項式を1, 4, 10とした時の結果を示せ。</p>
+<h3 id="%E4%B8%80%E8%88%AC%E5%8C%96%E7%B7%9A%E5%BD%A2%E5%9B%9E%E5%B8%B0%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B02">一般化線形回帰のプログラミング2</h3>
+<p>output2.csvの項目totalに対して正則化最小二乗法で
+今度は<u>数値的に</u>フィットするプログラムを作成する。
+(1) - (4) までは同じ</p>
+<pre class="hljs"><code><div>y_true = df[<span class="hljs-string">"total"</span>]
+w = np.zeros(num_basis)
+</div></code></pre>
+<p>(5) 最小化</p>
+<pre class="hljs"><code><div>result = minimize(objectivefunction, x0=w, args=(y_true, df[<span class="hljs-string">"x"</span>], basis, lamb), jac=gradient, tol=<span class="hljs-number">10</span>**(<span class="hljs-number">-10</span>), method=<span class="hljs-string">'SLSQP'</span>)
+</div></code></pre>
+<p>ここで最小化したい関数をobjectivefunction、そのパラメータ$\omega$に対する偏微分をgradientとしており、
+それぞれ次のようにオブジェクトとして定義する。</p>
+<p>objectfunction:</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">objectivefunction</span><span class="hljs-params">(w, y, x, basis, lamb)</span>:</span>
+    y_pre = np.dot(w, basis)
+    oval = <span class="hljs-number">0.5</span>*np.sum(np.square(y - y_pre))
+    penalty = <span class="hljs-number">0.5</span>*lamb*np.sum(np.square(w))
+    <span class="hljs-keyword">return</span> oval + penalty
+</div></code></pre>
+<p>gradient:</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gradient</span><span class="hljs-params">(w, y, x, basis, lamb)</span>:</span>
+    premat = np.dot(basis,basis.T)
+    g_pre = (np.dot(premat,w) - np.dot(basis,y))
+    g_penalty = lamb * w
+    grad = g_pre + g_penalty
+    <span class="hljs-keyword">return</span> grad
+</div></code></pre>
+<p>(6)-(7)は基本的に前と同じ。
+前の節で作ったプログラムと合わせて作られているのが
+direct_and_numerical.py
+である。
+関数の呼び出し方の違いに注意。何をやっているかわかりますか？
+(5)のminimizeを使った最適化については、講義中に使い方の説明をします（<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">minimize</a>参照）。</p>
+<p><strong>練習1：</strong>
+direct_optimize.pyとdirect_and_numerical.pyのフィッティング結果を比べよ。</p>
+<h3 id="%E5%9F%BA%E5%BA%95%E9%96%A2%E6%95%B0%E3%81%AE%E9%81%B8%E6%8A%9E">基底関数の選択</h3>
+<p>これまでは基底関数に多項式を使ってきたが、一般化線形回帰の枠組みは、$\vec{w}$を求めるという観点では基底関数はなんでも良いということだったので、
+基底関数さえ変えるところを用意できれば、あとは<strong>同じプログラムが利用できる</strong>。
+それでは基底関数を多項式（$1, x, x^2, \cdots, x^M$）から別の関数に変えてみよう。
+基底関数はなんでも良いのだが、数少ないパラメータで局在性をコントロールできる、微積分が容易など、性質の良い関数を使うと汎用性が高く便利になる。
+ここでは２つのパラメータ（平均値と標準偏差）で局在性をコントロールできるガウス関数を使ってみよう。
+$\phi_j (x_i)$を次のように設定する。
+$$
+\phi_j (x_i) = \exp\left(-\frac{(x_n-\mu_j)^2}{2\sigma_j^2}\right)
+$$
+作成した上述プログラムにおいて、basis_set_calc(num_basis, x_n)の部分を変えるだけで
+目的のガウス基底による一般化線形回帰モデルを作ることができる。
+多項式を上記のガウス関数に変更してみよう。</p>
+<p><strong>練習2：</strong>
+ガウス関数の$\mu_j$を$0 \sim 1$の0.1刻み等間隔, $\sigma_j$を全て1とした基底関数を用意せよ。</p>
+<p>ガウス基底の作成</p>
+<pre class="hljs"><code><div>basis = gauss_basis_set_calc(num_basis,df[<span class="hljs-string">"x"</span>], mu, sigma)
+</div></code></pre>
+<p>ここで、gauss_basis_set_calcは次のように定義しておきます</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gauss_basis_set_calc</span><span class="hljs-params">(num_basis, x_n, mu, sigma)</span>:</span> 
+    <span class="hljs-comment"># set basis function</span>
+    <span class="hljs-keyword">for</span> idata <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,num_basis):
+        <span class="hljs-keyword">if</span> idata == <span class="hljs-number">0</span>:
+            basis = x_n**idata <span class="hljs-comment">#ここは1になるのでそのままにしている</span>
+        <span class="hljs-keyword">else</span>:
+            basis_0 = np.exp(-(x_n - mu[idata])**<span class="hljs-number">2</span> / (<span class="hljs-number">2</span>*sigma[idata]**<span class="hljs-number">2</span>))
+            basis = np.append(basis, basis_0, axis=<span class="hljs-number">0</span>)
+    basis = np.reshape(basis, (num_basis, len(x_n)))
+    <span class="hljs-keyword">return</span> basis 
+</div></code></pre>
+<p>（多項式基底と何が違うかな?）</p>
+<p>この関数をで以下のようにして読み込む。</p>
+<pre class="hljs"><code><div>mu = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, num_basis)
+sigma = np.ones(num_basis)
+basis = gauss_basis_set_calc(num_basis,df[<span class="hljs-string">"x"</span>],mu,sigma)
+</div></code></pre>
+<h3 id="%E6%BC%94%E7%BF%92%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">演習レポート</h3>
+<ul>
+<li>(1)Data_2025.csvを読み込んで$x$と$t$の散布図を作成せよ（これは12MeV電子線のPercent Depth Dose（PDD）である。depthの単位は[cm]である。）。<br>
+読み込みにおいて
+df = pd.read_csv(&quot;Data_2025.csv&quot;, encoding=&quot;SHIFT-JIS&quot;)
+でエラーが出る場合は
+df = pd.read_csv(&quot;Data_2025.csv&quot;, encoding=&quot;utf-8&quot;)
+とすること。</li>
+<li>(2)上の$t$を$x$の多項式でフィッティングせよ。どのような多項式を用いたのか、罰則項（$\lambda$）にどのような値を使ったのか、なぜそのようにフィットしてみようと思ったのかを記述すること。</li>
+<li>(3)上の$t$を$x$のガウス関数でフィッティングせよ。どのようなガウス基底を用いたのか、なぜそのようにフィットしてみようと思ったのかを記述すること。</li>
+</ul>
+
+</body>
+</html>
