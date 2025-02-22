@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<!--ここから追記 1.(数式に対応させる)-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax:{inlineMath: [['$', '$']]},
+      messageStyle: "none"
+    });
+</script>
+<!--追記 1.ここまで-->
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+    <!--ここから追記 2.(--- で改ページ)-->
+    <style>  
+      hr {  
+        opacity: 0;  
+        break-after: page;  
+      }  
+    </style>  
+    <!--追記 2.ここまで-->
+<h1 id="python%E5%85%A5%E9%96%80">Python入門</h1>
+<h2 id="%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E">プログラム言語</h2>
+<p>python（パイソン）は、様々な用途に利用可能なプログラミング言語の１つである。プログラミングとは、「コンピュータに処理させたい事柄をコンピュータが分かる言葉で指示する行為」のことで、プログラミング言語には機械にとって理解しやすい低水準言語（機械語とアセンブリ言語）と人間の言葉に近い形式で記述できる高水準言語（FortranやC言語など）がある。pythonは高水準言語に分類される。また、高水準言語はコンパイル型とインタプリタ型に分けることができる[*]が、pythonはインタプリタ型の言語に分類される（pythonの他にインタプリタ言語で最近統計学の解析によく使われる言語としてR（アール）がある。Rは後期に開講する医学統計学演習で学ぶ）。</p>
+<p>*<em>コンパイラ言語はソースプログラムを機械語に変換するプロセスが必要だが、インタプリタ言語は１ステップ（１行）ごとに機械語に解釈しながら実行してくれる。</em></p>
+<p>pythonは様々なOSに対してフリーでインストールできるインタプリタ型の高水準言語（スクリプト言語）である。Matlab（マトラボ）などの有償のプログラミング言語とは対照的に、pythonをマスターしておけばPCさえあればプログラミングを行う環境を無償で構築することができる。また、これまで科学技術計算において中心的なプログラム言語であったC言語やFortranに比べ直感的に使うことができ、プログラミング初級者が最初に学ぶ言語として最適なものの１つに挙げられている。科学技術研究分野で発展してきたC言語やFortranで書かれたプログラム（ライブラリ）を網羅的に組み込んでおり、C言語やFortranを理解することなしにそれらを簡単に利用することができるようになっている点も、初級者にとってはありがたい[**]。近年ではGoogleの研究グループが開発したTensorflowというディープラーニング系のライブラリが公開され、利用者が爆発的に増えている。量子コンピュータもpythonを使って簡単に動かすことができるようになっている。</p>
+<p>**<em>軽い気持ちでプログラミングを始められるという良い面もあるが、中身を理解していないのにわかった気になるユーザーが出てきてしまう悪い面もある。</em></p>
+<p>pythonが使えるようになると高度な実験解析が可能になる。医療の分野でも広く使われており、学部の間に基礎を習得しておくことで就職先や大学院進学後にアドバンテージを得ること間違いないでしょう。Windows, Mac, Linuxなど様々な OS 用の python 実行環境が提供されているので、自分が所有するパソコンには必ず入れておきましょう。</p>
+<p>なお、栄華を極めているpythonだが、pythonに代わるプログラム言語が出現することも歴史は否定しておらず、10年後, 20年後も同じ状況であるかはわからない。今後50年は大丈夫、と言える言語はC言語くらいでしょう。本気でプログラムを勉強したい人はC言語（とC++）を学ぶことを強く勧めます[***]。C言語はほとんど全てのコンピュータで使うことができ、コンピュータの最もコアな部分にも使われている言語の１つであり、コンピュータがなくならない限りなくならないでしょう。例えば、今後の発展によって世界を大きく変えると想像される量子コンピュータが普及するような時代になったとしても、まずはC言語との互換性をルール化すると考えられます。C言語に関しては、みなさんがリタイアするくらいまでなら残っていることでしょう。もっと不変な言語を望む人は物理学を真剣に学びましょう。物理学を押さえておけば、（理論上には）原理から出発してどのような科学技術の発展にも対応できる能力を獲得できます（そして、プログラム言語の多くは物理学の研究の中で必要となったために物理屋が開発に関わってきました）。</p>
+<p>***<em>深層学習を一般の人でも使えるように公開されたTensorflowも、大元はC言語に近いCUDA言語（Graphycal Processing Unit; GPUで並列化計算を容易にできるようにしたC言語をベースにした言語）で書かれており、それをpythonで実行できるようにしています。なので、もし自分でTensorflowの発展バージョンを大元から作ろうと思ったら、CUDA言語を勉強しないといけません。</em></p>
+<p>本講義では、学生が自分のノートPCを使ってpythonのコードを走らせます。そのための準備としてpythonのインストールおよびプログラムを書くためのエディタ（Editor）のインストールが終わっていることが前提で進めていきます。pythonは、windowsではanaconda prompt、macではターミナルを使って動かせるか確認してください。また、エディタとしてVisual Stadio codeが起動できるどうかも確認してください（これらは1年生のデータ科学入門で既に設定されているはずです）。</p>
+<h2 id="hello-world-in-python">Hello world! in python</h2>
+<p>pythonはインタプリタ言語です。
+インタプリタ言語であることをまずは実感してもらいます。
+Macの人はターミナルを立ち上げて、Windowsの人はAnaconda Promptを使って、次のように打ちエンター（Enter）キーを押しましょう。</p>
+<pre class="hljs"><code><div>python --version
+</div></code></pre>
+<p>バージョンが3以上であればこのまま以下を続けてください。</p>
+<pre class="hljs"><code><div>python
+</div></code></pre>
+<p>すると、&quot;&gt;&gt;&gt;&quot;というようにコンソール画面に変わるかと思います。今、pythonの世界にいるということを意味します。そこで1+1と打ちましょう。</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; 1+1
+</div></code></pre>
+<p>2という答えが返ってきましたか？このように、１行ずつ解釈して実行してくれるプログラム言語がインタプリタ言語です。C言語では<u>コンパイル</u>という作業が必要で、これは人間が理解できる内容（プログラム）を一旦機械語に翻訳する作業です（機械語で書かれているのが実行ファイルが生成される）。pythonは翻訳作業も一気にやってくれるため、プログラム初級者にはすごくわかりやすく扱いやすい言語になっています。Hello world!という文字列を返してくれる操作は、</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(<span class="hljs-string">"Hello world!"</span>)
+</div></code></pre>
+<p>でいけてしまいます。
+しかし、１行１行打って作業をするのはしんどいです。ファイルにまとめて書いたものを一気に実行してくれるとありがたい時がありますし、編集や改変も簡単で便利です。「実行内容をファイルにまとめて書いたもの」をスクリプトと呼びます。次に、それを作成し動かしてみます。そのために一旦pythonから抜けます。</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; <span class="hljs-built_in">exit</span>()
+</div></code></pre>
+<h2 id="%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88script">スクリプト（script）</h2>
+<p>では、Hello.pyという名前のファイルをダウンロードしましょう。エディタ（Visual Stadio codeをインストールしていればそれを使いましょう。他のエディタ、例えばEmaxやMacの場合はXcodeなどでもOK）を開いて中身を確認してください。</p>
+<p><em>（Hello.pyファイルの中身）</em></p>
+<pre class="hljs"><code><div>print(<span class="hljs-string">"Hello world!"</span>) 
+</div></code></pre>
+<p>確認したら、ターミナルで次のように打ちましょう。</p>
+<pre class="hljs"><code><div>python Hello.py
+</div></code></pre>
+<p>Hello world!が表示されましたか？「python Hello.py」としてEnterを打つことを「（pythonプログラムもしくはスクリプトの）実行(execute)」と言います。python **** と打つことで****に書かれたファイルの内容（スクリプト）が上から順に実行されます。スクリプトを使うことでいろいろなことができるようになります。
+例えばHello.pyを次のように編集してみましょう。</p>
+<p><em>（Hello.pyファイルの中身）</em></p>
+<pre class="hljs"><code><div>x = <span class="hljs-number">10</span>
+y = <span class="hljs-number">20</span>
+x = x + y
+print(<span class="hljs-string">"Hello world!: x = "</span>, x) 
+</div></code></pre>
+<p>保存したら、また次を実行しましょう。</p>
+<pre class="hljs"><code><div>python Hello.py
+</div></code></pre>
+<p>何が出力されたでしょう？
+どうしてそのように出力されたのか、説明できますか？
+同じ結果は以下でも得ることができます。</p>
+<p><em>（Hello.pyファイルの中身）</em></p>
+<pre class="hljs"><code><div>x = <span class="hljs-number">10</span>
+y = <span class="hljs-number">20</span>
+x += y
+print(<span class="hljs-string">"Hello world!: x = "</span>, x) 
+</div></code></pre>
+<p>このように、インタプリタ言語でファイルに実行する手順を書いて実行することをスクリプト処理という時があります。そのファイルをスクリプトと呼んでいます。pythonではスクリプトを作成することがプログラミングするということです。</p>
+<p>高度なスクリプトを作成するためにはいくつかのルールを覚えなければなりません。このルールを本講義で少しずつ学ぶことになりますが、まずはfor文, while文、if文を取り上げたいと思います。</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+    x += i
+    <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>: <span class="hljs-comment"># i//2*2 == i でも良い</span>
+    y += i 
+print(<span class="hljs-string">"(x, y) = ("</span>, x, <span class="hljs-string">","</span>, y, <span class="hljs-string">")"</span>) 
+</div></code></pre>
+<p>何が出力されたでしょうか？なぜそのような出力になったのかを考えましょう（forの後やifの後はインデント（タブ）を必ず入れる。#はコメントアウト、その行の以降に書かれている文は実行時に無視される）.</p>
+<p>また、</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+</div></code></pre>
+<p>を</p>
+<pre class="hljs"><code><div>i = <span class="hljs-number">0</span> 
+<span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">10</span>:
+    i += <span class="hljs-number">1</span>
+</div></code></pre>
+<p>と変えてみてください。これはiが10未満である限りループを続けることになり、for文のように繰り返し処理に使うことができます。</p>
+<h2 id="%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%85%A5%E5%87%BA%E5%8A%9B">データの入出力</h2>
+<p>データの入出力ができるようになると、やれることが拡がります。1. データを入れて、2. 学習させて、3. 予測結果を返す、というAIの基本構造の最初(1)と最後(3)の部分です。出力をさらに解析にかける、ということも頻繁に行うため、出力データの設計もよく考えてやらなければなりません。この講義では、csvファイルの入出力について学びます。任意のテキストファイルや画像の入出力についてはのちに必要に応じて学ぶこととします。</p>
+<p>output.csvをダウンロードして自分のいるディレクトリにおいてください。このcsvファイルを読み込み、２列目と３列目の和を4列目に追記してその結果をoutput2.csvという名前で出力してみます。（カンマ区切りで書かれた）csvデータの入出力や編集にはpandasというライブラリを使うと便利です。この機能を使うために import pandas as pd と最初に宣言します。次のようにファイル（input_output.py）を作成しましょう。</p>
+<p><em>(input_output.pyのファイルの中身)</em></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+df = pd.read_csv(<span class="hljs-string">"output.csv"</span>, encoding=<span class="hljs-string">"SHIFT-JIS"</span>)
+print(df)
+df[<span class="hljs-string">"total"</span>] = df[<span class="hljs-string">"sin_2px"</span>]+df[<span class="hljs-string">"noise"</span>]
+print(df)
+df.to_csv(<span class="hljs-string">"output2.csv"</span>, index=<span class="hljs-literal">None</span>, encoding=<span class="hljs-string">"SHIFT-JIS"</span>)
+</div></code></pre>
+<p>出力結果はどうでしたか？output2.csvが新たに生成されたでしょうか？（実行時にpandasのエラーが出た人は, pythonではなくpython3で実行してみること）</p>
+<p>pandasで事が足りればこれだけで済みますが、pandasではないデータ形式を出力したくなる時があります。
+よくあるのは、数値計算で使われるNumpy形式で書かれたデータを出力することです。その場合も本演習では常にpandasのデータフレームに直してからpandasを使ってcsvファイルで保存しましょう（これらの相互変換については、必要性が生じたときに説明します）。</p>
+<h2 id="%E3%82%B0%E3%83%A9%E3%83%95%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9">グラフの書き方</h2>
+<p>まずはインタラクティブにoutput.csvを使ってグラフを生成してみたいと思います。pythonを起動します。</p>
+<pre class="hljs"><code><div>python 
+</div></code></pre>
+<p>続いて、ライブラリをインポートします。pandasのほか、グラフ作成用にmatplotlib.pyplotというライブラリを使います。</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; import pandas as pd
+&gt;&gt;&gt; import matplotlib.pyplot as plt
+</div></code></pre>
+<p>では、データを読み込みましょう。</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; df = pd.read_csv(<span class="hljs-string">"output.csv"</span>,encoding=<span class="hljs-string">"SHIFT-JIS"</span>)
+&gt;&gt;&gt; df
+</div></code></pre>
+<p>output.csvのファイルの中身が出力されましたね？では、横軸を項目x、縦軸を項目sin_2pxとして散布図を描いてみます。</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; plt.scatter(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"sin_2px"</span>], color=<span class="hljs-string">"blue"</span>,label=<span class="hljs-string">"sin_2px"</span>)  
+&gt;&gt;&gt; plt.show()  <span class="hljs-comment"># 図の出力</span>
+</div></code></pre>
+<p>グラフが出力されましたか？
+plt.scatterの代わりに
+plt.plotを使うとデータ間を直線でつなぐことができます。</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; plt.plot(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"sin_2px"</span>], color=<span class="hljs-string">"blue"</span>,label=<span class="hljs-string">"sin_2px"</span>)  
+&gt;&gt;&gt; plt.show()  <span class="hljs-comment"># 図の出力</span>
+</div></code></pre>
+<p>オプションでmarkerを使うと、データ点を表示させることができます。</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; plt.plot(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"sin_2px"</span>], marker=<span class="hljs-string">"o"</span>, color=<span class="hljs-string">"blue"</span>,label=<span class="hljs-string">"sin_2px"</span>)  
+&gt;&gt;&gt; plt.show()  <span class="hljs-comment"># 図の出力</span>
+</div></code></pre>
+<p>ラインの幅や種類はオプションのlwやlsを使う。</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; plt.plot(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"sin_2px"</span>], marker=<span class="hljs-string">"o"</span>, ls=<span class="hljs-string">":"</span>, lw=4, color=<span class="hljs-string">"blue"</span>,label=<span class="hljs-string">"sin_2px"</span>)  
+&gt;&gt;&gt; plt.show()  <span class="hljs-comment"># 図の出力</span>
+</div></code></pre>
+<p>プロットの範囲はplt.xlimとplt.ylimを使う。凡例はplt.legend、レイアウトの自動調整plt.tight_layout()を入れてプロットする。</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; plt.plot(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"sin_2px"</span>], marker=<span class="hljs-string">"o"</span>, ls=<span class="hljs-string">":"</span>, lw=4, color=<span class="hljs-string">"blue"</span>,label=<span class="hljs-string">"sin_2px"</span>)  
+&gt;&gt;&gt; plt.xlim(-2,2) <span class="hljs-comment"># xの範囲</span>
+&gt;&gt;&gt; plt.ylim(-2,2) <span class="hljs-comment"># yの範囲</span>
+&gt;&gt;&gt; plt.legend() <span class="hljs-comment"># レジェンドを追加</span>
+&gt;&gt;&gt; plt.tight_layout() <span class="hljs-comment"># レイアウトの自動調整（常に書いておくと良い）</span>
+&gt;&gt;&gt; plt.show()  <span class="hljs-comment"># 図の出力</span>
+</div></code></pre>
+<p><strong>練習１</strong>：
+項目sin_2pxの代わりにnoiseをy軸にとり、$x = [-1,1]$, $y = [-1, 1]$の範囲で散布図を作成せよ。</p>
+<p>複数のグラフを書くには、pltを続けて入力し、最後にplt.show()で出力させれば良い。\</p>
+<pre class="hljs"><code><div>&gt;&gt;&gt; plt.plot(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"sin_2px"</span>], marker=<span class="hljs-string">"o"</span>, ls=<span class="hljs-string">":"</span>, lw=4, color=<span class="hljs-string">"blue"</span>,label=<span class="hljs-string">"sin_2px"</span>)  
+&gt;&gt;&gt; plt.scatter(df[<span class="hljs-string">"x"</span>], df[<span class="hljs-string">"noise"</span>], color=<span class="hljs-string">"red"</span>,label=<span class="hljs-string">"noise"</span>)  
+&gt;&gt;&gt; plt.show()  <span class="hljs-comment"># 図の出力</span>
+</div></code></pre>
+<p><strong>練習２</strong>：
+上記のグラフを出力するスクリプトを作成せよ。</p>
+<h2 id="%E6%BC%94%E7%BF%92%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">演習レポート</h2>
+<ul>
+<li>図に示されるフローチャートをプログラムで作成してみよう。manabaのレポートに、作成したスクリプトを貼り付けて<u>解説</u>をしてください。</li>
+</ul>
+<p>演習問題：このチャートをプログラム化せよ！
+<img src="images/1_1.png" width="500"><br></p>
+
+</body>
+</html>
