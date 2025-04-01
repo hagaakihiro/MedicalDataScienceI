@@ -8,7 +8,8 @@
 
 [最小二乗法と最尤推定][https://hagaakihiro.github.io/MedicalDataScienceI/1_3-5/README.pdf]
 
-6-9. [線形回帰と最適化][https://hagaakihiro.github.io/MedicalDataScienceI/03/index.html]
+[過学習と正則化][https://hagaakihiro.github.io/MedicalDataScienceI/1_6-9/README.pdf]
+
 10-12. [回帰におけるモデル選択とベイズ線形回帰][https://hagaakihiro.github.io/MedicalDataScienceI/04/index.html]
 
 <--!
