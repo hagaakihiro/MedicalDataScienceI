@@ -4,7 +4,7 @@
 1. [ハードウェア][https://hagaakihiro.github.io/MedicalDataScienceI/1_1/ハードウェア.pdf]
 
 
-2. [Python入門][https://hagaakihiro.github.io/MedicalDataScienceI/01/index.html]
+2. [Python入門][https://hagaakihiro.github.io/MedicalDataScienceI/1_2/README.pdf]
 
 3-5. [最小二乗法と最尤推定][https://hagaakihiro.github.io/MedicalDataScienceI/02/index.html]
 6-9. [線形回帰と最適化][https://hagaakihiro.github.io/MedicalDataScienceI/03/index.html]
