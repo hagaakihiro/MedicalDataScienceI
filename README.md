@@ -10,6 +10,8 @@
 
 [過学習と正則化][https://hagaakihiro.github.io/MedicalDataScienceI/1_6-9/README.pdf]
 
+[最小二乗法と重回帰分析][https://hagaakihiro.github.io/MedicalDataScienceI/1_10-12/README.pdf]
+
 10-12. [回帰におけるモデル選択とベイズ線形回帰][https://hagaakihiro.github.io/MedicalDataScienceI/04/index.html]
 
 <--!
