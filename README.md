@@ -12,10 +12,10 @@
 
 [最小二乗法と重回帰分析][https://hagaakihiro.github.io/MedicalDataScienceI/1_10-12/README.pdf]
 
-10-12. [回帰におけるモデル選択とベイズ線形回帰][https://hagaakihiro.github.io/MedicalDataScienceI/04/index.html]
+[モデル選択とベイズ線形回帰][https://hagaakihiro.github.io/MedicalDataScienceI/1_13-14/README.pdf]
 
-<--!
+<---!
 5. [線形識別モデル][https://hagaakihiro.github.io/MedicalDataScienceI/05/index.html]
 6. [カーネル法][https://hagaakihiro.github.io/MedicalDataScienceI/06/index.html]
 7. [識別におけるモデル選択][https://hagaakihiro.github.io/MedicalDataScienceI/07/index.html]
--->
+--->
