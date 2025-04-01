@@ -14,8 +14,8 @@
 
 [モデル選択とベイズ線形回帰][https://hagaakihiro.github.io/MedicalDataScienceI/1_13-14/README.pdf]
 
-<---!
+<!--
 5. [線形識別モデル][https://hagaakihiro.github.io/MedicalDataScienceI/05/index.html]
 6. [カーネル法][https://hagaakihiro.github.io/MedicalDataScienceI/06/index.html]
 7. [識別におけるモデル選択][https://hagaakihiro.github.io/MedicalDataScienceI/07/index.html]
---->
+-->
