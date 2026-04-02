@@ -4,7 +4,7 @@
 
 [ハードウェア][https://hagaakihiro.github.io/MedicalDataScienceI/1_1/情報及びハードとソフトウェア.pdf]
 
-[Python入門][https://hagaakihiro.github.io/MedicalDataScienceI/1_2/README.pdf]
+[Python入門][https://hagaakihiro.github.io/MedicalDataScienceI/1_2/README.md]
 
 [最小二乗法と最尤推定][https://hagaakihiro.github.io/MedicalDataScienceI/1_3-5/README.pdf]
 
