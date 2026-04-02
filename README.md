@@ -4,15 +4,15 @@
 
 [ハードウェア][https://hagaakihiro.github.io/MedicalDataScienceI/1_1/情報及びハードとソフトウェア.pdf]
 
-[Python入門][https://hagaakihiro.github.io/MedicalDataScienceI/1_2]
+[Python入門][https://hagaakihiro.github.io/MedicalDataScienceI/1_2/README.pdf]
 
-[最小二乗法と最尤推定][https://hagaakihiro.github.io/MedicalDataScienceI/1_3-5]
+[最小二乗法と最尤推定][https://hagaakihiro.github.io/MedicalDataScienceI/1_3-5/README.pdf]
 
-[過学習と正則化][https://hagaakihiro.github.io/MedicalDataScienceI/1_6-9]
+[過学習と正則化][https://hagaakihiro.github.io/MedicalDataScienceI/1_6-9/README.pdf]
 
-[最小二乗法と重回帰分析][https://hagaakihiro.github.io/MedicalDataScienceI/1_10-12]
+[最小二乗法と重回帰分析][https://hagaakihiro.github.io/MedicalDataScienceI/1_10-12/README.pdf]
 
-[モデル選択とベイズ線形回帰][https://hagaakihiro.github.io/MedicalDataScienceI/1_13-14]
+[モデル選択とベイズ線形回帰][https://hagaakihiro.github.io/MedicalDataScienceI/1_13-14/README.pdf]
 
 <!--
 5. [線形識別モデル][https://hagaakihiro.github.io/MedicalDataScienceI/05/index.html]
