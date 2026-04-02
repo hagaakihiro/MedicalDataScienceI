@@ -2,7 +2,7 @@
 
 [医用データ科学I第一回導入資料][https://hagaakihiro.github.io/MedicalDataScienceI/1_1/医用データ科学I第一回導入資料_2026.pdf]
 
-[ハードウェア][https://hagaakihiro.github.io/MedicalDataScienceI/1_1/ハードウェア.pdf]
+[ハードウェア][https://hagaakihiro.github.io/MedicalDataScienceI/1_1/情報及びハードとソフトウェア.pdf]
 
 [Python入門][https://hagaakihiro.github.io/MedicalDataScienceI/1_2/README.pdf]
 
