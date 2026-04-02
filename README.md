@@ -1,6 +1,6 @@
 # 医用データ科学I（２年前期）
 
-[医用データ科学I第一回導入資料][https://hagaakihiro.github.io/MedicalDataScienceI/1_1/医用データ科学I第一回導入資料_2025.pdf]
+[医用データ科学I第一回導入資料][https://hagaakihiro.github.io/MedicalDataScienceI/1_1/医用データ科学I第一回導入資料_2026.pdf]
 
 [ハードウェア][https://hagaakihiro.github.io/MedicalDataScienceI/1_1/ハードウェア.pdf]
 
