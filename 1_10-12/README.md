@@ -527,8 +527,6 @@ if __name__ == '__main__':
 
      input_name = ['lcavol', 'lweight', 'age', 'lbph', 'svi', 'lcp',
           'gleason', 'pgg45']
-     input_name = ['lcavol', 'lweight', 'age', 'lbph', 'svi', 'lcp',
-          'gleason', 'pgg45']
     
      # Normalization as z-value
      for name0 in input_name:
