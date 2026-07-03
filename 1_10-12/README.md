@@ -495,7 +495,7 @@ from sklearn.metrics import mean_squared_error
 from scipy.linalg import svd
 ```
 
-multi_basis_set_calc
+multi_basis_set_calcとdirect_weight_optimize
 について、正則化項の部分を導入した以下の関数に置き換える。
 ```py
 # basis set
@@ -506,18 +506,33 @@ def multi_basis_set_calc(num_basis, df, input_name):
         basis = np.append(basis, df[name0], axis=0)
     basis = np.reshape(basis, (num_basis, len(df)))
     return basis
+# Analytical solution
+def direct_weight_optimize(y, basis, lamb):
+    prevec = np.dot(basis, y)
+    ww = np.linalg.solve(np.dot(basis,basis.T)+lamb * np.identity(len(prevec)),prevec)
+    return ww
 ```
 
 データの標準化についても、以下のように標準化したもので行ってみよう。
 ```py
 #---- main ----
 if __name__ == '__main__':
-    input_name = ['lcavol', 'lweight', 'age', 'lbph', 'svi', 'lcp',
-       'gleason', 'pgg45']
+     file_path = "prostate.data"
+     data_type = 1 # 0 comma, 1 tab, 2 space
+     df = load_data(file_path, data_type)
+
+     # データの確認
+     if df is not None:
+          print(df.head())  # 最初の5行を表示
+
+     input_name = ['lcavol', 'lweight', 'age', 'lbph', 'svi', 'lcp',
+          'gleason', 'pgg45']
+     input_name = ['lcavol', 'lweight', 'age', 'lbph', 'svi', 'lcp',
+          'gleason', 'pgg45']
     
-    # Normalization as z-value
-    for name0 in input_name:
-        df[name0] = (df[name0]-df[name0].mean())/df[name0].std()
+     # Normalization as z-value
+     for name0 in input_name:
+          df[name0] = (df[name0]-df[name0].mean())/df[name0].std()
 ```
 ($(x-\mu)/\sigma$という形で標準化する。)
 
@@ -582,7 +597,7 @@ if __name__ == '__main__':
     print(output_df)
 ```
 
-得られた係数$w$は、重回帰分析の時と変わったかな？
+得られた係数$w$は、重回帰分析の時と変わったかな？（今回はZ-scoreまでは出していません）
 
 
 ### LASSO回帰
