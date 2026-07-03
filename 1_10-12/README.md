@@ -554,7 +554,7 @@ if __name__ == '__main__':
     #print(w0)
     print(direct_w)
 ```
-上記のlamb = np.double(0.0)において、様々な値に変えてみよう。
+上記のlamb = np.double(0.0)を、様々な値に変えてみよう。
 
 評価は検証データで実施する；
 ```py
