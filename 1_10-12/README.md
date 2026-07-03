@@ -575,7 +575,7 @@ if __name__ == '__main__':
     input_name0 = pd.DataFrame([input_name0]).T
     #direct_w0 = [w0]
     #direct_w0.extend(direct_w)
-    direct_w0 = pd.DataFrame([direct_w0]).T
+    direct_w0 = pd.DataFrame([direct_w]).T
     #beta_std0 = pd.DataFrame(beta_std)
     output_df = pd.concat([input_name0, direct_w0],axis=1)
     output_df.columns = ["Params", "Coef."]
