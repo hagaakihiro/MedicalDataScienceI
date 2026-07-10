@@ -77,7 +77,7 @@ $$
 のようにガウス分布で書ける時、事後分布もまた
 
 $$
-p(\vec{x}|\vec{y}) = {\cal N}(\vec{x}|\Sigma(A^\top L(\vec{y}-\vec{b})), \Sigma), \hspace{2mm}where\hspace{1mm}\Sigma = (\Lambda + A^\top L A)^{-1}
+p(\vec{x}|\vec{y}) = {\cal N}(\vec{x}|\Sigma(A^\top L(\vec{y}-\vec{b})+\Lambda \vec{\mu}), \Sigma), \hspace{2mm}where\hspace{1mm}\Sigma = (\Lambda + A^\top L A)^{-1}
 \hspace{2mm}\cdots(5)
 $$
 
