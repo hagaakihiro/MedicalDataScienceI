@@ -94,7 +94,7 @@ p(\vec{w}|\alpha) = \left( \frac{\alpha}{\sqrt{2\pi}} \right)^{M/2}
 \hspace{2mm}\cdots(7)
 $$
 
-を当てはめると
+を当てはめると（$\Lambda -> \alpha, L -> \beta, A -> \phi^\top(x), x -> w$)
 
 $$
 p_{prior}(\vec{w}|\alpha) = {\cal N}(\vec{w}|\vec{m}_N, \vec{S}_N)
